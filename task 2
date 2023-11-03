@@ -1,0 +1,5 @@
+//Write a SQL query to retrieve the product name, quantity, and total amount for each order item. Display the result in ascending order of the order ID.
+SELECT o.id, p.name, oi.quantity, (oi.quantity * oi.unit_price) AS total_amount  FROM Order_items oi 
+INNER JOIN Orders o ON oi.order_id = o.id
+INNER JOIN Products p ON oi.product_id = p.id
+ORDER BY o.id ASC
